@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.dao.TodoDao">
+	
+	<select id="getManyTodoList" resultType="TodoDto" parameterType="TodoDto" >
+         SELECT id,text,done FROM todo 
+ 	</select>
+ 	
+ 	<insert id="insertTodo">
+ 		INSERT INTO todo(id,text,done) VALUES (#{id},#{text},#{done})	
+ 	</insert>
+ 	
+ 	<update id="updateTodoText">
+ 		UPDATE todo SET text = #{text} WHERE id = #{id}
+ 	</update>
+ 	
+ 	<update id="updateTodoDone">
+ 		UPDATE todo SET done = #{done} WHERE id = #{id}
+ 	</update>
+ 	
+ 	<delete id="deleteTodo">
+ 		DELETE FROM todo WHERE id = #{id} 
+ 	</delete>
+
+</mapper>
